@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import Notes from './components/Notes';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
+import time from './time.json';
 
 class App extends Component {
-	// Map over this.state.friends and render a FriendCard component for each friend object
+	// Setting this.state.note to the note json array
+	// state = {
+	// 	note
+	// };
+
 	render() {
 		return (
 			<Wrapper>
-				<Title>Title</Title>
-				<Notes>Notes</Notes>
+				<Title>Work Day Scheduler</Title>
+				<div className="row">{time.map((times) => <Notes id={times.id} key={times.id} />)}</div>
 			</Wrapper>
 		);
 	}
