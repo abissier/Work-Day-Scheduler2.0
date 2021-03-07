@@ -1,23 +1,17 @@
-import React, { Component } from 'react';
-import Notes from './components/Notes';
+import React from 'react';
+import Note from './components/Note';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import time from './time.json';
 
-class App extends Component {
-	// Setting this.state.note to the note json array
-	// state = {
-	// 	note
-	// };
+function App() {
+	return (
+		<Wrapper>
+			<Title>Work Day Scheduler</Title>
 
-	render() {
-		return (
-			<Wrapper>
-				<Title>Work Day Scheduler</Title>
-				<div className="row">{time.map((times) => <Notes id={times.id} key={times.id} />)}</div>
-			</Wrapper>
-		);
-	}
+			{time.map((t) => <Note id={t.id} note={t.note} />)}
+		</Wrapper>
+	);
 }
 
 export default App;
