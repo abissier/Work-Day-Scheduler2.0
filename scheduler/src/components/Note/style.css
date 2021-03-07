@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+.note {
+	background: #fff;
+	border-radius: 2px;
+	margin: .5rem;
+	padding: 2%;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	text-align: left;
+}
+
+html,
+body,
+#root {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+/* .row {
+	display: flex;
+	flex-direction: row;
+} */
+
+.btn-warning {
+	height: 85px;
+	margin: .5rem;
+	padding: 2%;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
