@@ -11,7 +11,7 @@ class Notes extends Component {
 	componentDidMount() {
 		for (var i = 8; i < 17; i++) {
 			var displayTodo = localStorage.getItem(i);
-			if (displayTodo) {
+			if (displayTodo && this.props.id === i) {
 				this.setState({
 					note: displayTodo,
 					id: i
