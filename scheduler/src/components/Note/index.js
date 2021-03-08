@@ -7,6 +7,20 @@ class Notes extends Component {
 		id: ''
 	};
 
+	// display saved notes from local storage
+	componentDidMount() {
+		for (var i = 8; i < 17; i++) {
+			var displayTodo = localStorage.getItem(i);
+			if (displayTodo) {
+				this.setState({
+					note: displayTodo,
+					id: i
+				});
+			}
+		}
+	}
+
+	// update note state when value changes
 	handleInputChange = (event) => {
 		let value = event.target.value;
 		let noteId = event.target.id;
@@ -17,6 +31,7 @@ class Notes extends Component {
 		});
 	};
 
+	// save note to local storage when save button clicked
 	handleFormSubmit = (event) => {
 		event.preventDefault();
 
@@ -26,6 +41,7 @@ class Notes extends Component {
 		localStorage.setItem(noteId, noteItem);
 	};
 
+	// return note card for each hour
 	render() {
 		return (
 			<div className="row" key={this.props.id}>
@@ -34,7 +50,6 @@ class Notes extends Component {
 					<textarea
 						className="form-control"
 						value={this.state.note}
-						name="note"
 						id={this.props.id}
 						aria-label="With textarea"
 						onChange={this.handleInputChange}
