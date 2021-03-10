@@ -10,7 +10,7 @@ function App() {
 		<Wrapper>
 			<Title>Work Day Scheduler</Title>
 			<Hour />
-			{time.map((t) => <Note id={t.id} note={t.note} />)}
+			{time.map((t) => <Note id={t.id} time={t.time} note={t.note} />)}
 		</Wrapper>
 	);
 }

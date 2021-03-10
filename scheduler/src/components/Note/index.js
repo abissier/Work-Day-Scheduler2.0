@@ -4,7 +4,9 @@ import './style.css';
 class Notes extends Component {
 	state = {
 		note: '',
-		id: ''
+		id: '',
+		hour: new Date().getHours(),
+		appClass: ''
 	};
 
 	// display saved notes from local storage
@@ -15,6 +17,19 @@ class Notes extends Component {
 				this.setState({
 					note: displayTodo,
 					id: i
+				});
+			}
+			if (this.state.hour < this.props.id) {
+				this.setState({
+					appClass: 'input-group-text later'
+				});
+			} else if (this.state.hour > this.props.id) {
+				this.setState({
+					appClass: 'input-group-text before'
+				});
+			} else {
+				this.setState({
+					appClass: 'input-group-text current'
 				});
 			}
 		}
@@ -44,9 +59,9 @@ class Notes extends Component {
 	// return note card for each hour
 	render() {
 		return (
-			<div className="row" key={this.props.id}>
+			<div className="row" key={this.props.time}>
 				<div className="input-group note">
-					<span className="input-group-text">{this.props.id}:00</span>
+					<span className={this.state.appClass}>{this.props.id}:00</span>
 					<textarea
 						className="form-control"
 						value={this.state.note}
@@ -55,7 +70,7 @@ class Notes extends Component {
 						onChange={this.handleInputChange}
 					/>
 					<button type="button" className="btn btn-warning" onClick={this.handleFormSubmit}>
-						Save
+						save
 					</button>
 				</div>
 			</div>

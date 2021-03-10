@@ -13,16 +13,38 @@
 }
 
 .note {
-	background: #fff;
+	background: transparent;
+	height: auto;
 	border-radius: 2px;
 	margin: .5rem;
 	padding: 2%;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 }
 
+span {
+	color: white !important;
+	border: none !important;
+}
+
 .btn-warning {
-	height: 85px;
+	background: #ffb5a7 !important;
+	border: none !important;
+	height: 80px;
+	width: 85px;
 	margin: .5rem;
 	padding: 2%;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	color: white !important;
+}
+
+.before {
+	background: #f9dcc4 !important;
+}
+
+.current {
+	background: #fec89a !important;
+}
+
+.later {
+	background: #fcd5ce !important;
 }
