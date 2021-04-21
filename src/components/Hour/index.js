@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 
 function Hour() {
-	return <div className="hour">{new Date().toUTCString()}</div>;
+	const [ time, setTime ] = useState(new Date());
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setTime(new Date());
+		}, 1000);
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
+
+	return (
+		<div>
+			<div className="hour">
+				{time.toLocaleDateString()},{time.toLocaleTimeString()}{' '}
+			</div>
+		</div>
+	);
 }
 
 export default Hour;
